@@ -1,0 +1,22 @@
+<%= provide(:title, @post.title )%>
+<div class="row my-5 py-5">
+  <div class="col-md-8 offset-md-2">
+    <%= render  "posts/partials/content" %>
+  </div>
+</div>
+
+<div class="row my-5 py-2">
+  <div class="col-md-8 offset-md-2">
+    <h3> comments </h3>
+    <%= render  "comments/partials/form", comment: @comment %>
+  </div>
+</div>
+
+<% @post.comments.each do |comment| %>
+  <div class="row pb-5">
+    <div class="col-md-8 offset-md-2">
+      <%= render  "comments/partials/comment_body", comment: comment %>
+      <%= render  "comments/partials/edit_comment_modal", comment: comment %>
+    </div>
+  </div>
+<% end %>

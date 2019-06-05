@@ -1,0 +1,12 @@
+<div class="row my-5 py-5">
+  <div class="col-md-6 offset-md-3">
+    <%= form_for @category do |f| %>
+      <div class="form-group">
+        <%= f.label :name, "Category Name" %>
+        <%= f.text_field :name, class: 'form-control', placeholder: 'Category Name' %>
+      </div>
+      <%= f.submit(@category.new_record? ? "Publish" : "Update", class: 'btn btn-sm bg-indigo rounded-0 text-white') %>
+      <%= link_to  "Cancle", blog_path, class: 'btn btn-sm btn-warning rounded-0' %>
+    <% end %>
+  </div>
+</div>

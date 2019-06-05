@@ -1,0 +1,58 @@
+<div class="row mt-2 pt-5 mb-3 pb-3">
+  <div class="col-md-8">
+    <% if @post.new_record? %>
+      <h4 class="my-4">Create new post</h4>
+    <% else %>
+      <h4 class="my-4">You are editing the post: 
+        <span class="bg-primary text-white">
+          <%= @post.title %>
+        </span>
+      </h4>
+    <% end %>
+
+    <%# Error Message %>
+    <%= render  "shared/errors" %>
+  </div>
+</div>
+<div class="row my-1 py-1">
+  <div class="col-md-12">
+    <%= form_for @post, html: {multipart: true} do |f| %>
+      <div class="form-row">
+        <div class="col-md-8">
+          <div class="form-group">
+            <%= f.label :title, "Post Title" %>
+            <%= f.text_field :title, class: 'form-control', placeholder: 'post title' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :content, "Post Content" %>
+            <%= f.trix_editor :content, required: true , placeholder: 'Post Content' %>
+          </div>
+          <%= f.submit(@post.new_record? ? "Publish" : "Update", class: 'btn btn-sm bg-indigo rounded-0 text-white') %>
+          <%= link_to  "Cancle", blog_path, class: 'btn btn-sm btn-warning rounded-0' %>
+        </div>
+        <div class="col-md-4">
+          <div class="card mt-4">
+            <div class="card-header p-2">
+              <h3 class="card-title mb-0">Categories</h3>
+            </div>
+            <div class="card-body">
+              <div class="custom-control ccustom-radio">
+                <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) %>
+              </div>
+            </div>
+          </div>
+          <div class="card mt-4">
+            <div class="card-header p-2">
+              <h3 class="card-title mb-0">Post Thumbnail</h3>
+            </div>
+            <div class="card-body">
+              <div class="custom-control ccustom-radio">
+                <%= f.file_field :image %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

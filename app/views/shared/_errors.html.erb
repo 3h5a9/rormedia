@@ -1,0 +1,15 @@
+<% if @post.errors.any? %>
+  <div class="card bg-danger mb-4">
+    <div class="card-body">
+      <h3>
+        The following <%= pluralize(@post.errors.count, "error") %> 
+        preventing this post to be <%= @post.new_record? ? "Published" : "Updated" %>
+      </h3>
+    </div>
+    <% @post.errors.full_messages.each do |msg| %>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%= msg %></li>
+      </ul>
+    <% end %>
+  </div>
+<% end %>
