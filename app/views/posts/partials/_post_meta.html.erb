@@ -1,0 +1,19 @@
+<p class="card-text">
+  <% if post.user %>
+  <span class="text-muted">
+    <%= fa_icon('user-secret', size: '1x') %>
+    <%= post.user.email[/[^@]+/] %>
+  </span>
+  <% end %>
+  <span class="text-muted">
+    <%= fa_icon('at') %>
+    <%= time_ago_in_words(post.created_at) %>
+  </span>
+  <span class="text-muted">
+    <%= fa_icon('grip-horizontal') %>
+    <% post.categories.each do |cp| %>
+      <%= cp.name %>
+      <%= "," unless cp == post.categories.last %>
+    <% end %>
+  </span>
+</p>

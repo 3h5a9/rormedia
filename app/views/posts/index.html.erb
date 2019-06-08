@@ -6,34 +6,18 @@
           <div class="row no-gutters">
             <div class="col-md-3">
               <%= link_to post_path(post) do %>
-                <%= image_tag(post.image_url, class: 'card-img rounded-0') %>
+                <%= image_tag(post.image.thumb.url, class: 'card-img rounded-0') %>
               <% end %>
             </div>
             <div class="col-md-9">
               <div class="card-body">
-                <h5 class="card-title"><%= link_to post.title, post_path(post) %></h5>
+                <h5 class="card-title">
+                  <%= link_to post.title, post_path(post) %>
+                </h5>
                 
-                <p><%= truncate sanitize(post.content, tags: [],  class: 'card-text'), length: 80 %></p>
+                <p><%= truncate sanitize(post.content, tags: [],  class: 'card-text'), length: 100 %></p>
                 
-                <p class="card-text">
-                  <% if post.user %>
-                  <span class="text-muted">
-                    <%= fa_icon('user-secret', size: '1x') %>
-                    <%= post.user.email[/[^@]+/] %>
-                  </span>
-                  <% end %>
-                  <span class="text-muted">
-                    <%= fa_icon('at') %>
-                    <%= time_ago_in_words(post.created_at) %>
-                  </span>
-                  <span class="text-muted">
-                    <%= fa_icon('grip-horizontal') %>
-                    <% post.categories.each do |cp| %>
-                      <%= cp.name %>
-                      <%= "," unless cp == post.categories.last %>
-                    <% end %>
-                  </span>
-                </p>
+                <%= render  "posts/partials/post_meta", post: post %>
                 
                 <%= private_links(post) %>
               </div>
