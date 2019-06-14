@@ -23,11 +23,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'font_awesome5_rails'
-gem 'trix-rails', require: 'trix'
 gem 'devise'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'carrierwave', '~> 1.0'
-
+gem 'ckeditor', '4.2.4'
 
 
 group :development, :test do

@@ -15,7 +15,7 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require font_awesome5
-//= require trix
 //= require activestorage
 //= require turbolinks
+//= require ckeditor/init
 //= require_tree .

@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
   resources :categories
   devise_for :users
+  
   root 'pages#index'
+  
   get 'blog', to: 'posts#index'
   
   resources :posts, except: [:index] do

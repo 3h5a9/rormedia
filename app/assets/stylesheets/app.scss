@@ -3,6 +3,8 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,600,700|Playfair+Display:400,900&display=swap');
 
 
+
+
 // Generic Classess
 .heading_font{ font-family: 'Playfair Display', serif; }
 
@@ -68,5 +70,34 @@ body{ font-family: 'Nunito', sans-serif; background: rgba(52, 58, 64, 0.05882352
   }
   .card-img {
     max-width: 212px;
+  }
+  .card-text{
+    img{
+      width: 100%;
+    }
+  }
+}
+
+
+// Button Styling
+.btn{
+  min-width: 100px;
+}
+
+
+
+// Responsive
+@media only screen and (min-width: 768px){
+  // Card Styling
+  .card{
+    .private_links{
+      position: absolute;
+      right: -105px;
+      top: 0%;
+      a{
+        display: block;
+        margin-bottom: 1rem;
+      }
+    }
   }
 }

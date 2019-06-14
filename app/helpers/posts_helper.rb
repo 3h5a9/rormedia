@@ -9,6 +9,14 @@ module PostsHelper
   end
 
 
+  # Post Thumbnail
+  def post_thumbnail(post)
+    if post.image.thumb.url
+      link_to post_path(post) do
+        image_tag(post.image.thumb.url, class: 'w-100 mw-100px')
+      end
+    end
+  end
 
   # Private Links
   def private_links(post)
