@@ -48,6 +48,7 @@
             <div class="card-body">
               <div class="custom-control ccustom-radio">
                 <%= f.file_field :image %>
+                <%= image_tag(@post.image.thumb.url, class: 'w-10 mt-2') %>
               </div>
             </div>
           </div>
