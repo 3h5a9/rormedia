@@ -1,0 +1,13 @@
+<div class="row mt-5 pt-5">
+  <div class="col-md-8 offset-md-2">
+  <%= form_for @message do |f| %>
+    <%= notice %>
+    <%= @message.errors.full_messages.join(', ') %>
+
+    <%= f.text_field :name, placeholder: 'name' %>
+    <%= f.email_field :email, placeholder: 'email' %>
+    <%= f.text_area :body, placeholder: 'body' %>
+    <%= f.submit 'Send' %>
+  <% end %>
+  </div>
+</div>
