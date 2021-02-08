@@ -25,7 +25,7 @@ gem 'jquery-rails'
 gem 'font_awesome5_rails'
 gem 'devise'
 gem 'devise-bootstrap-views', '~> 1.0'
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 gem 'ckeditor', '4.2.4'
 
 
